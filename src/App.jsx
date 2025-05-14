@@ -3,17 +3,17 @@ import { useState } from "react"
 export function App() {
  
   const [num, setNum] = useState(100)
-  const [most, setMost] = useState(true)
-  const [desa, setDesa] = useState(true)
+  const [most, setMost] = useState("")
+  const [desa, setDesa] = useState(false)
 
   function handleAumentar(){
     setNum(num + 100)
   }
   
   function handleMostar(){
-    if(most ===false) {
+    if(most === false) {
       setMost(true)
-      setDesa("matheus")
+      setDesa("")
       return
     }
 
@@ -23,19 +23,18 @@ export function App() {
 
   return(
    <main>
-      <h1>App</h1>
      
+      <section>
+        <p>numero: {num}</p>
+        <button onClick={handleAumentar}>aumentar</button>
+      </section>
+
        <section>
-        <p>O número da variável é: {num}</p>
-        <button onClick={handleAumentar}>Aumentar</button>
-       </section>
-   
-       <section>
-        <p>mostrar o número da variavel {most}</p>
-        
         <button onClick={handleMostar}>mostrar</button>
        </section>
 
+      <h1>App</h1>
+     
    </main>
   )
 }
