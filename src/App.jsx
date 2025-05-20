@@ -3,37 +3,35 @@ import { useState } from "react"
 export function App() {
  
   const [num, setNum] = useState(100)
-  const [most, setMost] = useState("")
-  const [desa, setDesa] = useState(false)
+  const [most, setMost] = useState(false)
 
-  function handleAumentar(){
+  function handleAumentar() {
     setNum(num + 100)
   }
   
-  function handleMostar(){
-    if(most === false) {
-      setMost(true)
-      setDesa("")
-      return
+  function handleMost() {
+    if (most === true) {
+       setMost(false)
+       return
     }
-
-    setMost(false)
-    setMost("marcio")
+    
+    setMost(true)
   }
 
   return(
    <main>
-     
+     <h1>Exercicio useState</h1>
+
       <section>
         <p>numero: {num}</p>
         <button onClick={handleAumentar}>aumentar</button>
       </section>
 
        <section>
-        <button onClick={handleMostar}>mostrar</button>
+        <h2>o parágrafo que some</h2>
+        {most ? <p>Em breve irei sumir</p> :""}
+        <button onClick={handleMost}>{most ? "esconder" : "mostrar"}</button>
        </section>
-
-      <h1>App</h1>
      
    </main>
   )
